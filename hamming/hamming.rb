@@ -1,23 +1,15 @@
 class Hamming
   def self.compute(a, b) 
-    original = a.chars
-    other = b.chars
-    count = 0
-    normalize(original, other)
-    #add to count for each difference
-    (0...original.length).each do |na| 
-        if original[na] != other[na]
-          count += 1
-        end
+    dna_strand1 = a.chars
+    dna_strand2 = b.chars
+    normalize(dna_strand1, dna_strand2)
+    #return a count of how many elemets are different
+    (0...@amount_to_compare).count do |nucleotide| 
+      dna_strand1[nucleotide] != dna_strand2[nucleotide]
     end
-    count
   end
-  #make the strands the same size for comparison
+  #determine how many elements to iterate over
   def self.normalize(array1, array2)
-    if array1.size > array2.size
-      array1.pop(array1.size - array2.size)
-    elsif array2.size > array1.size
-      array2.pop(array2.size - array1.size)
-    end 
+      @amount_to_compare = [array1.length, array2.length].min  
   end
 end
