@@ -1,4 +1,4 @@
 exercism.io exercises
 ========
 
-Just a plash to stash my iterations of ecercism.io challenges
+Just a plash to stash my iterations of exercism.io challenges
